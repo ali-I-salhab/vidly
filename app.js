@@ -1,7 +1,8 @@
-(function (exports, require, module, __filename, __dirname) {
-  console.log(__filename);
-});
-// at run time any code will be in this shape
+// path module
+
+const path = require("path");
 console.log(__filename);
-console.log(require);
-// console.log(module);
+const pathObject = path.parse(__filename);
+
+console.log(pathObject);
+console.log(pathObject.ext);
