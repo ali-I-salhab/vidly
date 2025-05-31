@@ -1,8 +1,9 @@
-const url = "ali salhab";
-// implementation details
+const url = "http://alisalhab.com";
+
 function log(message) {
   console.log(message);
 }
 
-module.exports = log;
-// module.exports.endPoint = url;
+module.exports.log = log;
+module.exports.endPoint = url;
+// we wil not export url to the outside because it is implement details
