@@ -1,10 +1,11 @@
-// event module
-const Logger = require("./logger");
+const http = require("http");
 
-const logger = new Logger();
-
-logger.on("logger", () => {
-  console.log("loger listerner ");
+const serve = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.write("ssssssss");
+  }
 });
 
-logger.log("sss");
+serve.listen(3000);
+
+console.log("listenin on port 300 ...");
