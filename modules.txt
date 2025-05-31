@@ -1,0 +1,22 @@
+// // global object
+
+// console.log("ali"); //this console object is global object we can reach it from any file any conatiner any module
+
+// setTimeout(() => {}, 2000);//global
+
+// clearTimeout();//global
+
+// setInterval(() => {}, 3);
+
+// clearInterval();//stop function from being call repeatitive
+
+// in browser
+
+// window object is conatin every thing in browser
+
+var m = "ali";
+
+global.console.log(m); //work fine
+
+// but any variable we define here is not available in the global object its private for this file or this container
+// we call this file module
