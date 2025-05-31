@@ -1,8 +1,11 @@
-// path module
+// operating system module (os)
 
-const path = require("path");
-console.log(__filename);
-const pathObject = path.parse(__filename);
+const os = require("os");
 
-console.log(pathObject);
-console.log(pathObject.ext);
+console.log(os.type());
+console.log(os.totalmem());
+console.log(os.freemem());
+console.log(os.arch());
+
+console.log(`total memory on this device ${os.freemem}`);
+// console.log(os.endianness());
