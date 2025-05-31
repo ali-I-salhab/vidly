@@ -1,11 +1,13 @@
-// operating system module (os)
+// file system module
 
-const os = require("os");
+const fs = require("fs");
 
-console.log(os.type());
-console.log(os.totalmem());
-console.log(os.freemem());
-console.log(os.arch());
+// const files = fs.readdirSync("./");
 
-console.log(`total memory on this device ${os.freemem}`);
-// console.log(os.endianness());
+// console.log(files);
+
+// we pass callback function
+fs.readdir("./df", (err, res) => {
+  err ? console.log(err) : console.log("no error");
+  console.log(res);
+});
