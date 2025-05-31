@@ -1,4 +1,6 @@
 // creating module
-var log = require("./logger");
 
-console.log(log);
+// to load module we use the require keyword
+var log = require("./logger.js");
+
+console.log(log.endPoint);
