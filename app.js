@@ -1,13 +1,14 @@
-// file system module
+// event module
+// this class
+const EventEmitter = require("events");
+// instance or object
+const emitter = new EventEmitter();
 
-const fs = require("fs");
+// listing to event
 
-// const files = fs.readdirSync("./");
-
-// console.log(files);
-
-// we pass callback function
-fs.readdir("./df", (err, res) => {
-  err ? console.log(err) : console.log("no error");
-  console.log(res);
+emitter.on("messagelogged", (e) => {
+  console.log("from listerner", e);
 });
+
+// raise event
+emitter.emit("messagelogged", { ai: 1 });
