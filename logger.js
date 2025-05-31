@@ -1,9 +1,11 @@
-const url = "http://alisalhab.com";
+var url = "ali salhab";
+const EventEmitter = require("events");
 
-function log(message) {
-  console.log(message);
+class Logger extends EventEmitter {
+  log(message) {
+    console.log(message);
+    //  raise event
+    this.emit("logger");
+  }
 }
-
-module.exports.log = log;
-module.exports.endPoint = url;
-// we wil not export url to the outside because it is implement details
+module.exports = Logger;

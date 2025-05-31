@@ -1,14 +1,10 @@
 // event module
-// this class
-const EventEmitter = require("events");
-// instance or object
-const emitter = new EventEmitter();
+const Logger = require("./logger");
 
-// listing to event
+const logger = new Logger();
 
-emitter.on("messagelogged", (e) => {
-  console.log("from listerner", e);
+logger.on("logger", () => {
+  console.log("loger listerner ");
 });
 
-// raise event
-emitter.emit("messagelogged", { ai: 1 });
+logger.log("sss");
