@@ -1,11 +1,26 @@
-const http = require("http");
+// import { connect, Schema, model } from "mongoose";
+// connect("mongodb://localhost/vidly")
+//   .then(() => console.log("connection to db succeessfully"))
+//   .catch((err) => console.log("cant connect ", err));
 
-const serve = http.createServer((req, res) => {
-  if (req.url === "/") {
-    res.write("ssssssss");
-  }
-});
+// const coursesSchema = new Schema({
+//   name: String,
+//   author: String,
+//   tags: [String],
+//   data: { type: Date, default: Date.now },
+//   isPublished: Boolean,
+// });
 
-serve.listen(3000);
+// const Course = model("Course", coursesSchema);
+// const course = new Course({
+//   name: "node js course",
+//   author: "ali salhab",
+//   tags: ["node", "backend"],
+//   isPublished: false,
+// });
 
-console.log("listenin on port 300 ...");
+// const res = await course.save();
+// // console.log(res);
+
+// const a = await Course.find();
+// console.log(a.length);
