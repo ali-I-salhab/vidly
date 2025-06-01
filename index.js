@@ -2,7 +2,8 @@ const express = require("express");
 
 const Joi = require("joi");
 const app = express();
-app.use(express.json());
+// this also a middleware
+app.use(express.json()); // if there a json object in the body ofthe request it parse it to json
 
 const courses = [
   { title: "course 1 ", id: 1 },
@@ -12,6 +13,7 @@ const courses = [
 ];
 
 app.get("/", (req, res) => {
+  // by return response to the client we terminate the request response cycle
   res.send("hello world !!!");
 });
 app.get("/api/courses", (req, res) => {
@@ -92,7 +94,7 @@ function validateCourse(course) {
 
   return schema.validate(course);
 }
-
+// every route handler function is s middleware function
 app.delete("/api/courses/:id", (req, res) => {
   const course = courses.find((ele) => {
     return ele.id === parseInt(req.params.id);
