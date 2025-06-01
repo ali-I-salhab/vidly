@@ -3,6 +3,7 @@ const log = require("./logger");
 const Joi = require("joi");
 const morgan = require("morgan");
 const helmet = require("helmet");
+const config = require("config");
 const app = express();
 // this also a middleware
 app.use(express.json()); // if there a json object in the body ofthe request it parse it to json
@@ -28,6 +29,10 @@ const courses = [
   { title: "course 3 ", id: 3 },
   { title: "course 4 ", id: 4 },
 ];
+// configuration
+console.log("application name", config.get("name"));
+console.log("mail server name", config.get("mail.host"));
+console.log("mail server password", config.get("mail.password"));
 
 app.get("/", (req, res) => {
   // by return response to the client we terminate the request response cycle

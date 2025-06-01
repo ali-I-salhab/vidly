@@ -1,0 +1,6 @@
+{
+    "mail":{
+        "host":"mail server development mode ",
+        "password":"app_password"
+    }
+}
