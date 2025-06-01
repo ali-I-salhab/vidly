@@ -1,15 +1,18 @@
 const express = require("express");
 const log = require("./logger");
 const Joi = require("joi");
+const morgan = require("morgan");
 const app = express();
 // this also a middleware
 app.use(express.json()); // if there a json object in the body ofthe request it parse it to json
 app.use(log); // we call this function to install middleware function in the request processing pipeline
 
-app.use(function (req, res, next) {
-  console.log("authentication .....");
-  next();
-});
+// app.use(function (req, res, next) {
+//   console.log("authentication .....");
+//   next();
+// });
+app.use(express.urlencoded());
+app.use(express.static("public"));
 
 const courses = [
   { title: "course 1 ", id: 1 },
