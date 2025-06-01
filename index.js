@@ -15,7 +15,13 @@ app.use(log); // we call this function to install middleware function in the req
 app.use(express.urlencoded()); //we can recieve data from form encode in postman
 app.use(express.static("public")); //acces files from public
 app.use(helmet());
-app.use(morgan("tiny"));
+if (app.get("env") === "development") {
+  app.use(morgan("tiny"));
+  console.log("mogran enabled in development environment");
+}
+
+console.log(` app : ${app.get("env")}`);
+console.log(` NODE_ENV  :  ${process.env.NODE_ENV}`);
 const courses = [
   { title: "course 1 ", id: 1 },
   { title: "course 2 ", id: 2 },
