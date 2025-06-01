@@ -2,6 +2,7 @@ const express = require("express");
 const log = require("./logger");
 const Joi = require("joi");
 const morgan = require("morgan");
+const helmet = require("helmet");
 const app = express();
 // this also a middleware
 app.use(express.json()); // if there a json object in the body ofthe request it parse it to json
@@ -11,9 +12,10 @@ app.use(log); // we call this function to install middleware function in the req
 //   console.log("authentication .....");
 //   next();
 // });
-app.use(express.urlencoded());
-app.use(express.static("public"));
-
+app.use(express.urlencoded()); //we can recieve data from form encode in postman
+app.use(express.static("public")); //acces files from public
+app.use(helmet());
+app.use(morgan("tiny"));
 const courses = [
   { title: "course 1 ", id: 1 },
   { title: "course 2 ", id: 2 },
