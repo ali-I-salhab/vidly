@@ -4,9 +4,12 @@ const Joi = require("joi");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const config = require("config");
-const startupDebugger=require('debug')('app:startup');
-const dbDebugger=require('debug')('app:db');
+const startupDebugger = require("debug")("app:startup");
+const dbDebugger = require("debug")("app:db");
 const app = express();
+app.set("view engine", "pug");
+app.set("views", "./views");
+
 // this also a middleware
 app.use(express.json()); // if there a json object in the body ofthe request it parse it to json
 app.use(log); // we call this function to install middleware function in the request processing pipeline
@@ -20,8 +23,8 @@ app.use(express.static("public")); //acces files from public
 app.use(helmet());
 if (app.get("env") === "development") {
   app.use(morgan("tiny"));
-//   console.log("mogran enabled in development environment");
-startupDebugger('mogran enabled in development environment')
+  //   console.log("mogran enabled in development environment");
+  startupDebugger("mogran enabled in development environment");
 }
 
 console.log(` app : ${app.get("env")}`);
@@ -36,10 +39,9 @@ const courses = [
 console.log("application name", config.get("name"));
 console.log("mail server name", config.get("mail.host"));
 console.log("mail server password", config.get("mail.password"));
-dbDebugger('connected to data base ')
+dbDebugger("connected to data base ");
 app.get("/", (req, res) => {
-  // by return response to the client we terminate the request response cycle
-  res.send("hello world !!!");
+  res.render("index", { title: "from pug file ", message: " hello" });
 });
 app.get("/api/courses", (req, res) => {
   res.send(courses);
